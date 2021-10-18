@@ -47,7 +47,7 @@
                 <td > {{ $car->ano }} </td>		
                 <td > {{ $car->chassi }} </td>
                 <td>
-                    <a class='btn btn-primary mx-1' href="/carros/{{ $serie->id }}/temporadas">Visualizar</a>
+                    <a class='btn btn-primary mx-1' href="/carros/{{ $car->cdCarro }}/temporadas">Visualizar</a>
                 </td>
                 <td>
                     <form method="post" action="/carros/{{ $car->cdCarro }}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($car->placa) }}?')">
