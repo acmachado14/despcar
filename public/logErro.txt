@@ -1,0 +1,5 @@
+Arquivo: C:\Users\Cliente\Desktop\projetinho\car\app\Http\Controllers\CrudDAO.php - Linha: 105 - Erro: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'carplaca.tbcarro' doesn't exist
+Arquivo: C:\Users\Cliente\Desktop\projetinho\car\app\Http\Controllers\CrudDAO.php - Linha: 105 - Erro: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'carplaca.tbcarro' doesn't exist
+Arquivo: C:\Users\Cliente\Desktop\projetinho\car\app\Http\Controllers\CrudDAO.php - Linha: 105 - Erro: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'carplaca.tbcarro' doesn't exist
+Arquivo: C:\Users\Cliente\Desktop\projetinho\car\app\Http\Controllers\CrudDAO.php - Linha: 105 - Erro: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'carplaca.tbcarro' doesn't exist
+Arquivo: C:\Users\Cliente\Desktop\projetinho\car\app\Http\Controllers\CrudDAO.php - Linha: 105 - Erro: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'carplaca.tbcarro' doesn't exist
