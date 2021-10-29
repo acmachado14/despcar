@@ -27,25 +27,17 @@ class CarroController extends Controller
     
     public function consult(Request $request){
        
-        $username = 'placaveiculos01';
-        $xmlData = file_get_contents("http://www.regcheck.org.uk/api/reg.asmx/CheckBrazil%20?RegistrationNumber=" . $request->placa . "&username=" . $username);
-        $xml=simplexml_load_string($xmlData);
-        $strJson = $xml->vehicleJson;
-        $json = json_decode($strJson);
-
-        $descricao = $json->Description;
-        $chassi = $json->Vin;
-        $combustivel = $json->Fuel;
-        $lugar = $json->Location;
-        $ano = $json->RegistrationYear;
+        $httpCarro = new HttpCarroController($request->placa);
+        
+        $json = $httpCarro->get();
 
         $requestStore = new Request([
             'placa' =>  $request->placa,
-            'descricao' =>  $descricao,
-            'lugar' =>  $lugar,
-            'ano' =>  $ano,
-            'combustivel' =>  $combustivel,
-            'chassi' =>  $chassi
+            'descricao' =>  $json->Description,
+            'lugar' =>  $json->Location,
+            'ano' =>  $json->RegistrationYear,
+            'combustivel' =>  $json->Fuel,
+            'chassi' =>  $json->Vin
             ]);
 
         $requestStore->setLaravelSession($request->getSession());
