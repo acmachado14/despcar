@@ -52,7 +52,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Sobre o Projeto
 
 <!--
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
@@ -72,7 +72,7 @@ Use the `BLANK_README.md` to get started.
 -->
 
 
-### Built With
+### Construído Com
 
 * [PHP](https://www.php.net/)
 * [PHPUnit](https://phpunit.de/)
@@ -82,26 +82,32 @@ Use the `BLANK_README.md` to get started.
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Primeiros Passos
 
-Assuming you've already installed on your machine: PHP (>= 7.0.0), Laravel and Composer.
-### Installation
+Assumindo que você ja tem em sua máquina os componentes: PHP (>= 7.0), Laravel (>= 8.64) and Composer.
+### Instalação
 
 1. Get a free API Key at [http://www.placaapi.com/](http://www.placaapi.com/)
-2. Clone the repo
+2. Clone o repositório
    ```sh
    git clone https://github.com/acmachado14/despcar.git
    ```
-3. Install Composer packages
+3. Instale os pacotes do Composer
    ```sh
    composer install
    ```
-4. Enter your API in `HttpCarroController.php`
+4. Entre com sua API no `HttpCarroController.php`
    ```js
    username = 'ENTER YOUR API';
    ```
-
-
+5. Execute as migrations
+   ```sh
+   php artisan migrate
+   ```
+6. Suba o servidor local
+   ```sh
+   php artisan serve
+   ```
 
 <!-- USAGE EXAMPLES 
 ## Usage
@@ -134,10 +140,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-
-
+Distribuido sob a MIT License. Veja `LICENSE.txt` para mais informações.
 
 
 <!-- CONTACT -->
@@ -145,7 +148,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Angelo - [@acmachado_14](https://twitter.com/acmachado_14) - cupertinoangelo13@gmail.com
 
-Project Link: [https://github.com/acmachado_14/despcar](https://github.com/acmachado_14/despcar)
+Project Link: [https://github.com/acmachado14/despcar](https://github.com/acmachado_14/despcar)
 
 
 
