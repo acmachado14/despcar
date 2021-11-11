@@ -140,7 +140,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <!-- LICENSE -->
 ## License
 
-Distribuido sob a MIT License. Veja `LICENSE.txt` para mais informações.
+Distribuido sob a GNUv3 License. Veja `LICENSE` para mais informações.
 
 
 <!-- CONTACT -->
