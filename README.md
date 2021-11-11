@@ -80,9 +80,6 @@ Use the `BLANK_README.md` to get started.
 * [Bootstrap](https://getbootstrap.com)
 * [MySQL](https://www.mysql.com/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -103,8 +100,6 @@ Assuming you've already installed on your machine: PHP (>= 7.0.0), Laravel and C
    ```js
    username = 'ENTER YOUR API';
    ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -141,18 +136,18 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@acmachado_14](https://twitter.com/acmachado_14) - cupertinoangelo13@gmail.com
+Angelo - [@acmachado_14](https://twitter.com/acmachado_14) - cupertinoangelo13@gmail.com
 
 Project Link: [https://github.com/acmachado_14/despcar](https://github.com/acmachado_14/despcar)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
