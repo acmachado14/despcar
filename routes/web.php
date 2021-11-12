@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // --------------------------------- carros ---------------------------------------
+
 Route::get('/', [CarroController::class, 'index'])->name('index'); //->middleware('auth');
 
 Route::post('/carros/consulta', [CarroController::class, 'consult'])->name('consult');
@@ -29,8 +30,5 @@ Route::get('/carros/criar', [CarroController::class, 'create'])->name('form_cria
 
 Route::delete('/carros/{id}', [CarroController::class, 'destroy']);
     
-
-
-
 
 // --------------------------------- debitos -------------------------------------

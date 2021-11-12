@@ -21,8 +21,12 @@ class CarroController extends Controller
     }
 
 
-    public function show(){
-        return view('carros.show');
+    public function show(Request $request){
+        $carroId = $request->id;
+        
+        $carro = Carro::find($carroId);
+      
+        return view('carros.show', compact('carro'));
     }
     
     public function consult(Request $request){
@@ -74,7 +78,7 @@ class CarroController extends Controller
     {
         $carroId = $request->id;
         
-        DB::transaction(function () use ($carroId, &$nomeSerie) {
+        DB::transaction(function () use ($carroId) {
             $carro = Carro::find($carroId);        
             $carro->delete();
         });
