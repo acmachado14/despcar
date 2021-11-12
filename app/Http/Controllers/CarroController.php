@@ -43,7 +43,7 @@ class CarroController extends Controller
 
         $carro->placa = $request->placa;
         $carro->descricao = $request->descricao;
-        $carro->lugar = $request->placa;
+        $carro->lugar = $request->lugar;
         $carro->ano = $request->ano;
         $carro->combustivel = $request->combustivel;
         $carro->chassi = $request->chassi;
@@ -87,7 +87,7 @@ class CarroController extends Controller
         $carro = Carro::create([
             'placa' =>  $request->placa,
             'descricao' =>  $request->descricao,
-            'lugar' =>  $request->placa,
+            'lugar' =>  $request->lugar,
             'ano' =>  $request->ano,
             'combustivel' =>  $request->combustivel,
             'chassi' =>  $request->chassi
