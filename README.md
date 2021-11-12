@@ -138,17 +138,17 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 -->
 
 <!-- LICENSE -->
-## License
+## Licença
 
 Distribuido sob a GNUv3 License. Veja `LICENSE` para mais informações.
 
 
 <!-- CONTACT -->
-## Contact
+## Contato
 
 Angelo - [@acmachado_14](https://twitter.com/acmachado_14) - cupertinoangelo13@gmail.com
 
-Project Link: [https://github.com/acmachado14/despcar](https://github.com/acmachado_14/despcar)
+Link do Projeto: [https://github.com/acmachado14/despcar](https://github.com/acmachado_14/despcar)
 
 
 
