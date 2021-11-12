@@ -24,6 +24,10 @@ Route::post('/carros/consulta', [CarroController::class, 'consult'])->name('cons
 
 Route::get('/carros/show/{id}', [CarroController::class, 'show'])->name('show');
 
+Route::post('/carros/edit/{id}', [CarroController::class, 'update']);
+
+Route::get('/carros/edit/{id}', [CarroController::class, 'edit'])->name('edit');
+
 Route::post('/carros/criar', [CarroController::class, 'store']);
 
 Route::get('/carros/criar', [CarroController::class, 'create'])->name('form_criar_carro');

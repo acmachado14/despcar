@@ -28,6 +28,36 @@ class CarroController extends Controller
       
         return view('carros.show', compact('carro'));
     }
+
+    public function edit(Request $request){
+        $carroId = $request->id;
+        
+        $carro = Carro::find($carroId);
+      
+        return view('carros.edit', compact('carro'));
+    }
+
+    public function update(Request $request) {
+    
+        $carro = Carro::find($request->CdCarro);
+
+        $carro->placa = $request->placa;
+        $carro->descricao = $request->descricao;
+        $carro->lugar = $request->placa;
+        $carro->ano = $request->ano;
+        $carro->combustivel = $request->combustivel;
+        $carro->chassi = $request->chassi;
+        $carro->save();
+
+        $request->session()
+            ->flash(
+                'mensagem',
+                "Carro {$carro->descricao} editado com sucesso"
+            );
+
+        return redirect()->route('index');
+    }
+
     
     public function consult(Request $request){
        

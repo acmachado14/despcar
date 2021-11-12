@@ -51,13 +51,13 @@
                 <td > {{ $car->chassi }} </td>
                 <td>
                     <a class='btn btn-primary ' href="/carros/show/{{ $car->cdCarro }}">
-                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-print"></i>
                     </a>
                     
                 </td>
                 
                 <td>
-                    <a class='btn btn-success ' href="/carros/show/{{ $car->cdCarro }}">
+                    <a class='btn btn-success ' href="/carros/edit/{{ $car->cdCarro }}">
                         <i class="far fa-edit"></i>
                     </a>
                 </td>
