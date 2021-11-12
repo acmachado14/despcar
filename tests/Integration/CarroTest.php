@@ -14,7 +14,7 @@ class CarroTest extends TestCase
     {
         self::$pdo = new \PDO('sqlite::memory:');
         self::$pdo->exec('
-            create table carros (
+            create table carros_test (
             cdCarro INTEGER primary key AUTOINCREMENT,
             placa TEXT,
             chassi TEXT,
@@ -35,10 +35,10 @@ class CarroTest extends TestCase
 
     public function testIncercaoDeCarro()
     {
-        $carros = self::$pdo->exec("INSERT INTO carros (placa,chassi,ano, descricao, lugar, remark, descLeilao, leilao, combustivel) 
+        $carros = self::$pdo->exec("INSERT INTO carros_test (placa,chassi,ano, descricao, lugar, remark, descLeilao, leilao, combustivel) 
         VALUES('teste','teste','teste','teste','teste','teste','teste','teste','teste');");
 
-        $sql = "SELECT * FROM carros";
+        $sql = "SELECT * FROM carros_test";
         $carro = self::$pdo->query($sql, \PDO::FETCH_ASSOC);
         $carrinhos = $carro->fetchAll();
 
