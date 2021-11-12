@@ -84,7 +84,7 @@ Use the `BLANK_README.md` to get started.
 <!-- GETTING STARTED -->
 ## Primeiros Passos
 
-Assumindo que você ja tem em sua máquina os componentes: PHP (>= 7.0), Laravel (>= 8.64) and Composer.
+Assumindo que você ja tem em sua máquina os componentes: PHP (>= 7.0), Laravel (>= 8.64) e Composer.
 ### Instalação
 
 1. Get a free API Key at [http://www.placaapi.com/](http://www.placaapi.com/)
