@@ -32,10 +32,12 @@
             <tr>
                 <th scope="col">Placa</th>
                 <th scope="col">Descrição</th>
+                <th scope="col">Lugar</th>
                 <th scope="col">Ano</th>
                 <th scope="col">Chassi</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="row"></th>
+                <th scope="row"></th>
+                <th scope="row"></th>
             </tr>
         </thead>
         <tbody>
@@ -44,16 +46,27 @@
            <tr>
                 <td> {{ $car->placa }} </td>
                 <td > {{ $car->descricao }} </td>	
+                <td > {{ $car->lugar}} </td>	
                 <td > {{ $car->ano }} </td>		
                 <td > {{ $car->chassi }} </td>
                 <td>
-                    <a class='btn btn-primary mx-1' href="/carros/show/{{ $car->cdCarro }}">Visualizar</a>
+                    <a class='btn btn-primary ' href="/carros/show/{{ $car->cdCarro }}">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    
                 </td>
+                
+                <td>
+                    <a class='btn btn-success ' href="/carros/show/{{ $car->cdCarro }}">
+                        <i class="far fa-edit"></i>
+                    </a>
+                </td>
+                
                 <td>
                     <form method="post" action="/carros/{{ $car->cdCarro }}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($car->placa) }}?')">
                     @csrf
                     @method('DELETE')
-                        <button class="btn btn-danger mx-1">
+                        <button class="btn btn-danger ">
                             <i class="far fa-trash-alt"></i>
                         </button>
                     </form>  
