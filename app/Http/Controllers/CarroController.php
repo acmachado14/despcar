@@ -47,6 +47,12 @@ class CarroController extends Controller
         $carro->ano = $request->ano;
         $carro->combustivel = $request->combustivel;
         $carro->chassi = $request->chassi;
+
+
+        $carro->remark = $request->remark;
+        $carro->leilao = $request->leilao;
+        $carro->descLeilao = $request->descLeilao;
+        
         $carro->save();
 
         $request->session()
