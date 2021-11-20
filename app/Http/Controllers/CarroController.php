@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Carro;
+use App\Models\Debito;
 use Illuminate\Support\Facades\DB;
 
 class CarroController extends Controller
@@ -25,16 +26,19 @@ class CarroController extends Controller
         $carroId = $request->id;
         
         $carro = Carro::find($carroId);
-      
-        return view('carros.show', compact('carro'));
+        $debitos = Debito::where('cdCarro', $carroId)->get();
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('carros.show', compact('carro','debitos', 'mensagem'));
     }
 
     public function edit(Request $request){
         $carroId = $request->id;
         
         $carro = Carro::find($carroId);
-      
-        return view('carros.edit', compact('carro'));
+        $debitos = Debito::where('cdCarro', $carroId)->get();
+
+        return view('carros.edit', compact('carro','debitos'));
     }
 
     public function update(Request $request) {

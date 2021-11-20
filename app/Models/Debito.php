@@ -7,7 +7,7 @@ class Debito extends Model {
 
 		public $timestamps = false;
 		protected $primaryKey = 'cdDebito';
-		protected $fillable = ['tipo, valor, descricao, cdCarro'];
+		protected $fillable = ['tipo', 'valor', 'descricao', 'cdCarro'];
 
 		public function carro()
 		{

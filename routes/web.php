@@ -2,6 +2,7 @@
 
 require __DIR__.'/auth.php';
 use App\Http\Controllers\CarroController;
+use App\Http\Controllers\DebitoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 // --------------------------------- carros ---------------------------------------
 
@@ -36,3 +36,13 @@ Route::delete('/carros/{id}', [CarroController::class, 'destroy']);
     
 
 // --------------------------------- debitos -------------------------------------
+
+Route::post('/debitos/criar', [DebitoController::class, 'store']);
+
+Route::get('/debitos/criar', [DebitoController::class, 'create'])->name('debitos');
+
+Route::delete('/debitos/{id}', [DebitoController::class, 'destroy']);
+
+Route::post('/debitos/edit/{id}', [DebitoController::class, 'update']);
+
+Route::get('/debitos/edit/{id}', [DebitoController::class, 'edit'])->name('edit');

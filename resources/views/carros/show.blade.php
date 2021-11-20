@@ -1,11 +1,14 @@
 @extends('layout')
 
 @section('cabecalho')
-    Show Carro
+    Carro: {{ $carro->placa }}
 @endsection
 
 @section('conteudo')
+
 @include('erros', ['errors' => $errors])
+
+@include('mensagem', ['mensagem' => $mensagem])
 
 <div class="container">
         <form>
@@ -57,12 +60,48 @@
             </div>					
         </div>
 
-        
-        <div class="row form-group">
-            <div class="col-md-12">
-                <a href="{{ route('index')}} "class="btn btn-primary float-right mx-1">Voltar</a>	
-            </div>										
-        </div>
+        <table class="table mt-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Valor</th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            @foreach($debitos as $debito)	
+            <tr>
+                    <td> {{ $debito->tipo }} </td>
+                    <td > {{ $debito->descricao }} </td>	
+                    <td > {{ $debito->valor}} </td>	
+                                
+                    <td>
+                        <a class='btn btn-success ' href="/debitos/edit/{{ $debito->cdDebito }}">
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <form method="post" action="/debitos/{{ $debito->cdDebito }}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($debito->descricao) }}?')">
+                        @csrf
+                        @method('DELETE')
+                            <button class="btn btn-danger ">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </form>  
+                    </td>
+                </tr>						
+            
+            @endforeach
+            
+            </tbody>
+        </table>
+
+
+
     </form>
 
     
