@@ -25,57 +25,57 @@
                         <a href="{{ route('form_criar_carro') }}" class="btn btn-primary float-left mx-1">Novo</a>		
                     </div>											
                 </div>	
-            </form >
+        </form >
     
-    <table class="table mt-5">
-        <thead class="thead-dark">
+        <table class="table mt-5">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Chassi</th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                    <th scope="row"></th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            @foreach($carros as $car)	
             <tr>
-                <th scope="col">Placa</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Lugar</th>
-                <th scope="col">Ano</th>
-                <th scope="col">Chassi</th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-                <th scope="row"></th>
-            </tr>
-        </thead>
-        <tbody>
-        
-        @foreach($carros as $car)	
-           <tr>
-                <td> {{ $car->placa }} </td>
-                <td > {{ $car->descricao }} </td>	
-                <td > {{ $car->lugar}} </td>	
-                <td > {{ $car->ano }} </td>		
-                <td > {{ $car->chassi }} </td>
-                <td>
-                    <a class='btn btn-primary ' href="/carros/show/{{ $car->cdCarro }}">
-                        <i class="fas fa-print"></i>
-                    </a>
+                    <td> {{ $car->placa }} </td>
+                    <td > {{ $car->descricao }} </td>	
+                    <td > {{ $car->lugar}} </td>	
+                    <td > {{ $car->ano }} </td>		
+                    <td > {{ $car->chassi }} </td>
+                    <td>
+                        <a class='btn btn-primary ' href="/carros/show/{{ $car->cdCarro }}">
+                            <i class="fas fa-print"></i>
+                        </a>
+                        
+                    </td>
                     
-                </td>
-                
-                <td>
-                    <a class='btn btn-success ' href="/carros/edit/{{ $car->cdCarro }}">
-                        <i class="far fa-edit"></i>
-                    </a>
-                </td>
-                
-                <td>
-                    <form method="post" action="/carros/{{ $car->cdCarro }}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($car->placa) }}?')">
-                    @csrf
-                    @method('DELETE')
-                        <button class="btn btn-danger ">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </form>  
-                </td>
-            </tr>						
-        
-        @endforeach
-        
-        </tbody>
-    </table>
+                    <td>
+                        <a class='btn btn-success ' href="/carros/edit/{{ $car->cdCarro }}">
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <form method="post" action="/carros/{{ $car->cdCarro }}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($car->placa) }}?')">
+                        @csrf
+                        @method('DELETE')
+                            <button class="btn btn-danger ">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </form>  
+                    </td>
+                </tr>						
+            
+            @endforeach
+            
+            </tbody>
+        </table>
     </div>
 @endsection

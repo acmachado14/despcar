@@ -54,6 +54,28 @@ class CarroTest extends TestCase
     
     }
 
+    public function testSeExisteCarrosComMesmaPlaca(){
+        self::$pdo->exec("INSERT INTO carros_test (placa,chassi,ano, descricao, lugar, remark, descLeilao, leilao, combustivel) 
+        VALUES('OPX4444','teste','teste','teste','teste','teste','teste','teste','teste');");
+
+        self::$pdo->exec("INSERT INTO carros_test (placa,chassi,ano, descricao, lugar, remark, descLeilao, leilao, combustivel) 
+        VALUES('OPX4444','teste','teste','teste','teste','teste','teste','teste','teste');");
+
+        $sql = "SELECT * FROM carros_test WHERE placa='OPX4444' ";
+
+        $carro = self::$pdo->query($sql, \PDO::FETCH_ASSOC);
+        $carrinhos = $carro->fetchAll();
+        
+        $cont = 0;
+        foreach($carrinhos as $carro){
+            if ($carro['placa'] === 'OPX4444'){
+                $cont++;
+            }
+        }
+
+        self::assertEquals(1, $cont);
+
+    }
 
     protected function tearDown(): void
     {
