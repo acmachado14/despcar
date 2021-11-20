@@ -12,6 +12,9 @@ Editar Debito
         @csrf
         <div class="row form-group">
 
+            <label for="cdCarro"></label>
+            <input type="hidden" class="form-control" value="{{ $carro->cdCarro }}" id="cdCarro" name="cdCarro" >
+
             <label for="cdDebito"></label>
             <input type="hidden" class="form-control" value="{{ $debito->cdDebito }}" id="cdDebito" name="cdDebito" >
 
@@ -27,8 +30,8 @@ Editar Debito
 
 
             <div class="col-md-4">
-                <label for="cdCarro">Carro</label>
-                <input type="text" class="form-control" value="{{ $carro->cdCarro }}" id="cdCarro" name="cdCarro" readonly>
+                <label for="placa">Carro</label>
+                <input type="text" class="form-control" value="{{ $carro->placa }}" id="placa" name="placa" readonly>
             </div>
 
 
