@@ -79,6 +79,8 @@ Use the `BLANK_README.md` to get started.
 * [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [MySQL](https://www.mysql.com/)
+* [mPDF](https://mpdf.github.io/)
+
 
 
 <!-- GETTING STARTED -->
