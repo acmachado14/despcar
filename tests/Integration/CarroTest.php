@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Integration;
+namespace Tests\Integration;
 
-use App\Test\Model\Carro;
+use Test\Models\Carro;
 use PHPUnit\Framework\TestCase;
 
 class CarroTest extends TestCase

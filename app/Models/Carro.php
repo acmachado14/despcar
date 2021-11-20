@@ -23,13 +23,25 @@ class Carro extends Model
     ];
     
     protected $attributes = [
-        'leilao' => '',
-        'descleilao' => '',
-        'remark' => '',
+        'leilao' => 'Indefinido',
+        'descLeilao' => 'Indefinido',
+        'remark' => 'Indefinido'
     ];
 
     public function debitos(){
         return $this->hasMany(Debito::class);
     }
+
+
+    public function construirPlacaChassiCombustivelLugarAnoDescricao($placa,$chassi, $combustivel, $lugar, $ano,$descricao)
+    {
+        $this->placa = $placa;
+        $this->chassi = $chassi;
+        $this->combustivel = $combustivel;
+        $this->lugar =$lugar;
+        $this->ano = $ano;
+        $this->descricao = $descricao;
+    }
+    
 }
 
