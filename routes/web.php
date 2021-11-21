@@ -3,6 +3,7 @@
 require __DIR__.'/auth.php';
 use App\Http\Controllers\CarroController;
 use App\Http\Controllers\DebitoController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,10 @@ Route::get('/carros/criar', [CarroController::class, 'create'])->name('form_cria
 
 Route::delete('/carros/{id}', [CarroController::class, 'destroy']);
     
+Route::get('/carros/pdf/{id}', [PdfController::class, 'FormGerarPdf'])->name('FormPDF');
+
+Route::post('/carros/pdf/{id}', [PdfController::class, 'GerarPDF']);
+
 
 // --------------------------------- debitos -------------------------------------
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -8,41 +9,45 @@ use Illuminate\Support\Facades\DB;
 
 class CarroController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
 
         $carros = Carro::all();
         $mensagem = $request->session()->get('mensagem');
 
         return view('index', compact('carros', 'mensagem'));
-        
     }
 
-    public function create(){
+    public function create()
+    {
         return view('carros.create');
     }
 
 
-    public function show(Request $request){
+    public function show(Request $request)
+    {
         $carroId = $request->id;
-        
+
         $carro = Carro::find($carroId);
         $debitos = Debito::where('cdCarro', $carroId)->get();
         $mensagem = $request->session()->get('mensagem');
 
-        return view('carros.show', compact('carro','debitos', 'mensagem'));
+        return view('carros.show', compact('carro', 'debitos', 'mensagem'));
     }
 
-    public function edit(Request $request){
+    public function edit(Request $request)
+    {
         $carroId = $request->id;
-        
+
         $carro = Carro::find($carroId);
         $debitos = Debito::where('cdCarro', $carroId)->get();
 
-        return view('carros.edit', compact('carro','debitos'));
+        return view('carros.edit', compact('carro', 'debitos'));
     }
 
-    public function update(Request $request) {
-    
+    public function update(Request $request)
+    {
+
         $carro = Carro::find($request->CdCarro);
 
         $carro->placa = $request->placa;
@@ -56,7 +61,7 @@ class CarroController extends Controller
         $carro->remark = $request->remark;
         $carro->leilao = $request->leilao;
         $carro->descLeilao = $request->descLeilao;
-        
+
         $carro->save();
 
         $request->session()
@@ -68,11 +73,12 @@ class CarroController extends Controller
         return redirect()->route('index');
     }
 
-    
-    public function consult(Request $request){
-       
+
+    public function consult(Request $request)
+    {
+
         $httpCarro = new HttpCarroController($request->placa);
-        
+
         $json = $httpCarro->get();
 
         $requestStore = new Request([
@@ -82,7 +88,7 @@ class CarroController extends Controller
             'ano' =>  $json->RegistrationYear,
             'combustivel' =>  $json->Fuel,
             'chassi' =>  $json->Vin
-            ]);
+        ]);
 
         $requestStore->setLaravelSession($request->getSession());
 
@@ -90,9 +96,10 @@ class CarroController extends Controller
         return redirect()->route('index');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
-        
+
         DB::beginTransaction();
         $carro = Carro::create([
             'placa' =>  $request->placa,
@@ -102,7 +109,7 @@ class CarroController extends Controller
             'combustivel' =>  $request->combustivel,
             'chassi' =>  $request->chassi
         ]);
-        
+
         DB::commit();
 
         $request->session()
@@ -117,12 +124,12 @@ class CarroController extends Controller
     public function destroy(Request $request)
     {
         $carroId = $request->id;
-        
+
         DB::transaction(function () use ($carroId) {
-            $carro = Carro::find($carroId);        
+            $carro = Carro::find($carroId);
             $carro->delete();
         });
-        
+
         $request->session()
             ->flash(
                 'mensagem',
@@ -130,15 +137,5 @@ class CarroController extends Controller
             );
         return redirect()->route('index');
     }
-/*
-    public function editaNome(int $id, Request $request)
-    {
-        $serie = Carro::find($id);
-        $novoNome = $request->nome;
-        $serie->nome = $novoNome;
-        $serie->save();
-    }
-*/
-
+   
 }
-
