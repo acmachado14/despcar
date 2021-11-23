@@ -8,7 +8,7 @@ class HttpCarroController
     private String $http;
     
     public function __construct($placa){
-        $this->http = "http://www.regcheck.org.uk/api/reg.asmx/CheckBrazil%20?RegistrationNumber=" . $placa . "&username=placaveiculos01";
+        $this->http = "http://www.regcheck.org.uk/api/reg.asmx/CheckBrazil%20?RegistrationNumber=" . $placa . "&username=";
     }
 
     public function get(){
