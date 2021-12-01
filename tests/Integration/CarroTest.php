@@ -2,95 +2,72 @@
 
 namespace Tests\Integration;
 
-use Test\Models\Carro;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
+use App\Models\Carro;
 
 class CarroTest extends TestCase
 {
-    /** @var \PDO */
-    private static $pdo;
-
-    public static function setUpBeforeClass(): void
-    {
-        self::$pdo = new \PDO('sqlite::memory:');
-        self::$pdo->exec('
-            create table carros_test (
-            cdCarro INTEGER primary key AUTOINCREMENT,
-            placa TEXT,
-            chassi TEXT,
-            combustivel TEXT,
-            lugar TEXT,
-            ano TEXT,
-            leilao TEXT,
-            remark TEXT,
-            descLeilao TEXT,
-            descricao TEXT
-        );');
-    }
-
-    protected function setUp(): void
-    {
-        self::$pdo->beginTransaction();
-    }
+    use RefreshDatabase;
 
     public function testIncercaoDeCarro()
     {
-        $carros = self::$pdo->exec("INSERT INTO carros_test (placa,chassi,ano, descricao, lugar, remark, descLeilao, leilao, combustivel) 
-        VALUES('teste','teste','teste','teste','teste','teste','teste','teste','teste');");
-
-        $sql = "SELECT * FROM carros_test";
-        $carro = self::$pdo->query($sql, \PDO::FETCH_ASSOC);
-        $carrinhos = $carro->fetchAll();
-
-        $cont = 0;
-        foreach($carrinhos as $carro){
-            if ($carro['placa'] === 'teste'){
-                $cont = 1;
-            }
-        }
         
-        self::assertEquals(1, $cont);
-        self::assertEquals(1, $carros);
+        DB::beginTransaction();
+        try{
+            $carro = Carro::create([
+                'placa' =>  'OPX4444',
+                'descricao' =>  'test',
+                'lugar' =>  'test',
+                'ano' =>  '2018',
+                'combustivel' =>  'FLEX',
+                'chassi' =>  '9BD48204FDSBGASX',
+            ]);
+            DB::commit();
+        }catch(\Exception $exception) {
+            DB::rollback();
+        }
+
+       
+
+        $carro2 = Carro::find($carro->cdCarro);
+
+        self::assertEquals($carro2->cdCarro, $carro->cdCarro);
     
     }
 
     public function testSeExisteCarrosComMesmaPlaca(){
-        self::$pdo->exec("INSERT INTO carros_test (placa,chassi,ano, descricao, lugar, remark, descLeilao, leilao, combustivel) 
-        VALUES('OPX4444','teste','teste','teste','teste','teste','teste','teste','teste');");
+       
+        DB::beginTransaction();
+        try{
+            $carro = Carro::create([
+                'placa' =>  'OPX4444',
+                'descricao' =>  'test',
+                'lugar' =>  'test',
+                'ano' =>  '2018',
+                'combustivel' =>  'FLEX',
+                'chassi' =>  '9BD48204FDSBGASX',
+            ]);
+    
+            $carro2 = Carro::create([
+                'placa' =>  'OPX4444',
+                'descricao' =>  'test',
+                'lugar' =>  'test',
+                'ano' =>  '2018',
+                'combustivel' =>  'FLEX',
+                'chassi' =>  '9BD48204FDSBGASX',
+            ]);
 
-        self::$pdo->exec("INSERT INTO carros_test (placa,chassi,ano, descricao, lugar, remark, descLeilao, leilao, combustivel) 
-        VALUES('OPX4444','teste','teste','teste','teste','teste','teste','teste','teste');");
-
-        $sql = "SELECT * FROM carros_test WHERE placa='OPX4444' ";
-
-        $carro = self::$pdo->query($sql, \PDO::FETCH_ASSOC);
-        $carrinhos = $carro->fetchAll();
-        
-        $cont = 0;
-        foreach($carrinhos as $carro){
-            if ($carro['placa'] === 'OPX4444'){
-                $cont++;
-            }
+            DB::commit();
+        }catch (\Exception $exception) {
+            DB::rollback();
         }
+      
 
-        self::assertEquals(1, $cont);
+        self::assertEquals($carro->placa, $carro2->placa);
 
     }
 
-    protected function tearDown(): void
-    {
-        self::$pdo->rollBack();
-    }
 
-    /*
-    public function carros()
-    {
-        $carros = new Carro();
-
-        return [
-            [
-                [$carros]
-            ]
-        ];
-    }*/
 }
