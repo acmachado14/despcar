@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Vehicle
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://regcheck.org.uk">
+  <vehicleJson>{
+  "Description": "FIAT Palio 1.0 Fire Flex 4p",
+  "RegistrationYear": "2015",
+  "CarMake": {
+    "CurrentTextValue": "FIAT"
+  },
+  "CarModel": {
+    "CurrentTextValue": "Palio 1.0 Fire Flex 4p"
+  },
+  "MakeDescription": {
+    "CurrentTextValue": "FIAT"
+  },
+  "ModelDescription": {
+    "CurrentTextValue": "Palio 1.0 Fire Flex 4p"
+  },
+  "ImageUrl": "http://www.placaapi.com/image.aspx/@RklBVCBQYWxpbyAxLjAgRmlyZSBGbGV4IDRw",
+  "Location": "IPATINGA, MG",
+  "Vin": "9BD17122ZF7547131",
+  "Fuel": "flex",
+  "Colour": "PRATA",
+  "Power": "75",
+  "EngineCC": "1000",
+  "Type": "PASSAGEIRO",
+  "Seats": "5",
+  "Axles": "",
+  "GrossWeight": "135",
+  "MaxTraction": "175"
+}</vehicleJson>
+  <vehicleData>
+    <Description>FIAT Palio 1.0 Fire Flex 4p</Description>
+    <RegistrationYear>2015</RegistrationYear>
+    <CarMake>
+      <CurrentTextValue>FIAT</CurrentTextValue>
+    </CarMake>
+    <CarModel>Palio 1.0 Fire Flex 4p</CarModel>
+    <EngineSize>
+      <CurrentValue>1000</CurrentValue>
+    </EngineSize>
+    <FuelType>
+      <CurrentValue>flex</CurrentValue>
+    </FuelType>
+    <NumberOfSeats>
+      <CurrentValue>5</CurrentValue>
+    </NumberOfSeats>
+  </vehicleData>
+</Vehicle>
