@@ -98,9 +98,9 @@ Assumindo que você ja tem em sua máquina os componentes: PHP (>= 7.0), Laravel
    ```sh
    composer install
    ```
-4. Entre com sua API no `HttpCarroController.php`
+4. Entre com sua API no `.env`
    ```js
-   username = 'ENTER YOUR API';
+   API_KEY = 'ENTER_YOUR_API_KEY'
    ```
 5. Execute as migrations
    ```sh
