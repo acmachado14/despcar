@@ -6,9 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Carro;
 use App\Models\Debito;
 use Illuminate\Support\Facades\DB;
+use App\Services\BuscaApiService;
+use GuzzleHttp\Client;
 
 class CarroController extends Controller
+
 {
+   
+    private $BuscaApiService;
+
+    public function __construct()
+    {
+        $this->BuscaApiService = new BuscaApiService(new Client);
+    }
+
     public function index(Request $request)
     {
 
@@ -76,46 +87,61 @@ class CarroController extends Controller
 
     public function consult(Request $request)
     {
+        /** @var Array $carData*/
+        $carData = $this->BuscaApiService->get($request->placa);
 
-        $httpCarro = new HttpCarroController($request->placa);
-
-        $json = $httpCarro->get();
-
-        $requestStore = new Request([
+        $car = [
             'placa' =>  $request->placa,
-            'descricao' =>  $json->Description,
-            'lugar' =>  $json->Location,
-            'ano' =>  $json->RegistrationYear,
-            'combustivel' =>  $json->Fuel,
-            'chassi' =>  $json->Vin
-        ]);
+            'descricao' =>  $carData['Description'],
+            'lugar' =>  $carData['Location'],
+            'ano' =>  $carData['RegistrationYear'],
+            'combustivel' =>  $carData['Fuel'],
+            'chassi' =>  $carData['Vin']
+        ];
 
-        $requestStore->setLaravelSession($request->getSession());
+        $car = $this->storeCar($car);
 
-        $this->store($requestStore);
+        $request->session()
+            ->flash(
+                'mensagem',
+                "Carro {$car->descricao} criado com sucesso"
+            );
+
         return redirect()->route('index');
+    }
+
+    public function storeCar(array $carData): Carro
+    {
+        $car = Carro::fromArray($carData);
+
+        DB::beginTransaction();
+        try {
+            $car->save();
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollback();
+        }
+
+        return $car;
     }
 
     public function store(Request $request)
     {
-
-
-        DB::beginTransaction();
-        $carro = Carro::create([
+        $car = [
             'placa' =>  $request->placa,
             'descricao' =>  $request->descricao,
             'lugar' =>  $request->lugar,
             'ano' =>  $request->ano,
             'combustivel' =>  $request->combustivel,
             'chassi' =>  $request->chassi
-        ]);
+        ];
 
-        DB::commit();
+        $car = $this->storeCar($car);
 
         $request->session()
             ->flash(
                 'mensagem',
-                "Carro {$carro->descricao} criado com sucesso"
+                "Carro {$car->descricao} criado com sucesso"
             );
 
         return redirect()->route('index');
