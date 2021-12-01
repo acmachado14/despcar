@@ -14,8 +14,8 @@ class BuscaApiService
         Client $client
     )
     {
-        $this->key = env('API_KEY') ;
-        $this->baseUrl = env('BASE_API_URL');
+        $this->key = env('API_KEY') ?? "seilacara";
+        $this->baseUrl = env('BASE_API_URL') ?? "http://teste.com";
         $this->client = $client;
     }
 
