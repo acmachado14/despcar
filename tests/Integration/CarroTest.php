@@ -13,7 +13,7 @@ class CarroTest extends TestCase
 
     public function testIncercaoDeCarro()
     {
-        
+
         DB::beginTransaction();
         try{
             $carro = Carro::create([
@@ -29,16 +29,15 @@ class CarroTest extends TestCase
             DB::rollback();
         }
 
-       
 
         $carro2 = Carro::find($carro->cdCarro);
 
         self::assertEquals($carro2->cdCarro, $carro->cdCarro);
-    
+
     }
 
     public function testSeExisteCarrosComMesmaPlaca(){
-       
+
         DB::beginTransaction();
         try{
             $carro = Carro::create([
@@ -49,7 +48,7 @@ class CarroTest extends TestCase
                 'combustivel' =>  'FLEX',
                 'chassi' =>  '9BD48204FDSBGASX',
             ]);
-    
+
             $carro2 = Carro::create([
                 'placa' =>  'OPX4444',
                 'descricao' =>  'test',
@@ -63,11 +62,7 @@ class CarroTest extends TestCase
         }catch (\Exception $exception) {
             DB::rollback();
         }
-      
 
         self::assertEquals($carro->placa, $carro2->placa);
-
     }
-
-
 }

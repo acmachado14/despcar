@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Services;
 
 use App\Services\BuscaApiService;
 use GuzzleHttp\Client;
@@ -19,12 +19,12 @@ class BuscaApiServiceTest extends TestCase
 
         /** @var Client $client */
         $client = $this->createMock(Client::class);
-        
+
         $response = new Response(200, [], $xml);
 
         $uri = "http://teste.com/CheckBrazil%20";
         $client->expects($this->once())->method('get')->with(
-            $uri, 
+            $uri,
             [
                 'query' => [
                     'RegistrationNumber' => $placa,
@@ -34,8 +34,8 @@ class BuscaApiServiceTest extends TestCase
         )->willReturn($response);
 
         $service = new BuscaApiService($client);
-        
-        // Act 
+
+        // Act
         $response = $service->get($placa);
 
         // Assert
@@ -46,15 +46,15 @@ class BuscaApiServiceTest extends TestCase
     {
         // Arrange
         $placa = 'placa123';
-        
+
         /** @var Client $client */
         $client = $this->createMock(Client::class);
         /** @var RequestInterface $request */
         $request = $this->createMock(RequestInterface::class);
-        
+
         $uri = "http://teste.com/CheckBrazil%20";
         $client->expects($this->once())->method('get')->with(
-            $uri, 
+            $uri,
             [
                 'query' => [
                     'RegistrationNumber' => $placa,
@@ -66,7 +66,7 @@ class BuscaApiServiceTest extends TestCase
         $service = new BuscaApiService($client);
         // Act
         $response = $service->get($placa);
-        
+
         // Assert
         $this->assertEquals([
             'error' => 'Erro de rede.'

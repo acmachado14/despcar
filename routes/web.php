@@ -3,8 +3,9 @@
 require __DIR__.'/auth.php';
 use App\Http\Controllers\CarroController;
 use App\Http\Controllers\DebitoController;
-use App\Http\Controllers\PdfController;
+use App\Http\Controllers\PdfControllerOld;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +36,9 @@ Route::get('/carros/criar', [CarroController::class, 'create'])->name('form_cria
 
 Route::delete('/carros/{id}', [CarroController::class, 'destroy']);
     
-Route::get('/carros/pdf/{id}', [PdfController::class, 'FormGerarPdf'])->name('FormPDF');
+Route::get('/carros/pdf/{id}/{tipoConsulta}', [PdfControllerOld::class, 'FormGerarPdf'])->name('FormPDF');
 
-Route::post('/carros/pdf/{id}', [PdfController::class, 'GerarPDF']);
+Route::post('/carros/pdf/{id}', [PdfControllerOld::class, 'GerarPDF']);
 
 
 // --------------------------------- debitos -------------------------------------
@@ -51,3 +52,6 @@ Route::delete('/debitos/{id}', [DebitoController::class, 'destroy']);
 Route::post('/debitos/edit/{id}', [DebitoController::class, 'update']);
 
 Route::get('/debitos/edit/{id}', [DebitoController::class, 'edit'])->name('edit');
+
+
+Route::get('create-pdf-file', [PDFController::class, 'index']);

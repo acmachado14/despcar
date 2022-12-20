@@ -16,23 +16,23 @@
 		<div class="row form-group">
             <div class="col-md-4">
                 <label for="Placa">Placa</label>
-                    <input type="text" class="form-control" value="{{ $carro->placa }}" id="placa" name="placa" readonly>
-                </div>
-                <div class="col-md-4">
-                    <label for="Descrição">Descrição</label>
-                    <input type="text" class="form-control" value="{{ $carro->descricao }}" id="descricao" name="descricao" readonly>
-                </div>
-                <div class="col-md-4">
-                    <label for="ano">Ano</label>
-                    <input type="text" class="form-control" id="ano" name="ano" value="{{ $carro->ano }}" readonly>
-                </div>												
+                <input type="text" class="form-control" value="{{ $carro->placa }}" id="placa" name="placa" readonly>
             </div>
+            <div class="col-md-4">
+                <label for="Descrição">Descrição</label>
+                <input type="text" class="form-control" value="{{ $carro->descricao }}" id="descricao" name="descricao" readonly>
+            </div>
+            <div class="col-md-4">
+                <label for="ano">Ano</label>
+                <input type="text" class="form-control" id="ano" name="ano" value="{{ $carro->ano }}" readonly>
+            </div>
+        </div>
 
         <div class="row form-group">
             <div class="col-md-4">
                 <label for="chassi">Chassi</label>
-                    <input type="text" class="form-control" id="chassi" name="chassi" value="{{ $carro->chassi }}" readonly>
-                </div>	
+                <input type="text" class="form-control" id="chassi" name="chassi" value="{{ $carro->chassi }}" readonly>
+            </div>
                 <div class="col-md-4">
                     <label for="combustivel">Tipo do Combustivel</label>
                     <input type="text" class="form-control" id="combustivel" name="combustivel" value="{{ $carro->combustivel }}" readonly>
@@ -41,9 +41,7 @@
                     <label for="lugar">Origem</label>
                     <input type="text" class="form-control" id="lugar" name="lugar" value="{{ $carro->lugar }}" readonly>
                 </div>											
-            </div>  	
-        <div>
-
+        </div>
 
         <div class="row form-group">
             <div class="col-md-4">
@@ -85,6 +83,10 @@
                     </td>
                     
                     <td>
+                        <form method="post" action="/carros/{{ $carro->cdCarro }}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($carro->placa) }}?')">
+
+                        </form>
+
                         <form method="post" action="/debitos/{{ $debito->cdDebito }}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($debito->descricao) }}?')">
                         @csrf
                         @method('DELETE')
@@ -99,9 +101,6 @@
             
             </tbody>
         </table>
-
-
-
     </form>
 
     

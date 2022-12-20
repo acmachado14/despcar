@@ -26,21 +26,6 @@
   </button>
 
 
-<!--
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ route('index')}} ">Home <span class="sr-only">(current)</span></a>
-      </li>
-      
-    </ul>
-
-    <form method="post" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
--->
   </div>
 </nav>
     <div class="container mt-5">

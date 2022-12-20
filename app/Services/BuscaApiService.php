@@ -32,7 +32,7 @@ class BuscaApiService
             ]);
             $xml = simplexml_load_string($response->getBody()->getContents());
             $strJson = $xml->vehicleJson;
-    
+
             return json_decode($strJson, true);
 
         } catch (RequestException $exception) {

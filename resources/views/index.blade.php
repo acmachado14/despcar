@@ -53,11 +53,11 @@ Carros
                 
 
                 <td>
-                    <a class='btn btn-info ' href="/carros/pdf/{{ $car->cdCarro }}">
+                    <a class='btn btn-info ' href="/carros/pdf/{{ $car->cdCarro }}/2">
                         <i class="fas fa-print"></i>
                     </a>
                 </td>
-                
+
                 <td>
                     <a class='btn btn-primary ' href="/carros/show/{{ $car->cdCarro }}">
                         <i class="fas fa-eye"></i>

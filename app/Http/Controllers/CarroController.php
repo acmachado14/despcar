@@ -10,9 +10,7 @@ use App\Services\BuscaApiService;
 use GuzzleHttp\Client;
 
 class CarroController extends Controller
-
 {
-   
     private $BuscaApiService;
 
     public function __construct()
@@ -163,5 +161,5 @@ class CarroController extends Controller
             );
         return redirect()->route('index');
     }
-   
+
 }
