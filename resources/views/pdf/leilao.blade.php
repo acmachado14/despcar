@@ -10,7 +10,7 @@
         @if (($carro->leilao == "Não") || ($carro->leilao == "Indefinido"))
             <thead class="table-success">
             <tr>
-                <th scope="col">Veiculo não passagem por leilões!</th>
+                <th scope="col">Veiculo não possui passagens por leilões!</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>

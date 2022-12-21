@@ -12,7 +12,7 @@
 <header>
     <img src="../images/logo.png" width=130px style="left: 0px; top: -10px; position: absolute">
     <h1 style="text-align:center">@yield('cabecalho')</h1>
-    <p style="font-size: 12px; top: 50px; right: 0px; position: absolute">Data de Emissão: {{ $data }}</p>
+    <p style="font-size: 12px; top: 50px; right: 0px; position: absolute">Data de Emissão: {{ $data  }}</p>
     <hr style="padding-top: 10px">
 </header>
 
